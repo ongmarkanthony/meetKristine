@@ -1,0 +1,6 @@
+.container {
+    border: 2px solid #000;
+    background-color: blueviolet;
+    border-radius: 10px;
+    padding: 10px;
+}
