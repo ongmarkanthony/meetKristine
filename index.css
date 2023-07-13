@@ -1,20 +1,12 @@
-*{
- margin: 0;
- padding: 0;
- text-decoration: none;
- list-style: none; 
- font-family: "Releway";
+.container {
+  background: #0069E6;
+  padding: 0;
+  margin: 0;
 }
 
-.nabvar {
-  position: fixed;
-  left: 0;
-  width: 230px;
-  height: 100%;
-  background: #120f2ee3;
-}
 
-.nabvar ul li a {
-  display: block;
-}
 
+
+.row {
+  background: #F0F2F4;
+}
