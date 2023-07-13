@@ -12,85 +12,84 @@
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 </head>
 <body>
+        <!-- offcanvas container -->
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+        aria-controls="offcanvasWithBothOptions"><i class="fa-solid fa-bars fa-bounce"></i></button>
     
-        <nav class="navbar navbar-expand-lg bg-light align-items-start">
-            <div class="container-row">
-                <a class="navbar-brand" href="#"></a>
-                <h1>Meet Kristine</h1>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"></li>
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#"><i class="fa-sharp fa-solid fa-house"></i>Home</i></a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false"><i class="fa-solid fa-user"></i>
-                                    Profile
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Logout</a></li>
-                                </ul>
-                            </li>
-                            <form class="d-flex" role="search">
-                                <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                            <hr>
-                            <ul class="nav flex-column">
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link active dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users-line"></i>
-                                        People
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">All</a></li>
-                                        <li><a class="dropdown-item" href="#">Teams</a></li>
-                                        <li><a class="dropdown-item" href="#">onboarding</a></li>
-                                        <li class="nav-item">
-                                            <a class="nav-link disabled">Setting</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
-                                    aria-expanded="false"><i class="fa-sharp fa-solid fa-building"></i>
-                                        Company
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Overview</a></li>
-                                        <li><a class="dropdown-item" href="#">Handbook</a></li>
-                                        <li><a class="dropdown-item" href="#">Location</a></li>
-                                        <li><a class="dropdown-item" href="#">Setting</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link active dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-suitcase"></i>
-                                        Time
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Overview</a></li>
-                                        <li><a class="dropdown-item" href="#">Calendar</a></li>
-                                    </ul>
-                                </li>
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Meet Kristine</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"></li>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"><i class="fa-sharp fa-solid fa-house"></i>Home</i></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"><i class="fa-solid fa-user"></i>
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </li>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                    <hr>
+                    <ul class="nav flex-column">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-users-line"></i>
+                                People
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">All</a></li>
+                                <li><a class="dropdown-item" href="#">Teams</a></li>
+                                <li><a class="dropdown-item" href="#">onboarding</a></li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#"><i class="fa-sharp fa-solid fa-signal"></i>Reports</a>
+                                    <a class="nav-link disabled">Setting</a>
                                 </li>
                             </ul>
-                        </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                            aria-expanded="false"><i class="fa-sharp fa-solid fa-building"></i>
+                                Company
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Overview</a></li>
+                                <li><a class="dropdown-item" href="#">Handbook</a></li>
+                                <li><a class="dropdown-item" href="#">Location</a></li>
+                                <li><a class="dropdown-item" href="#">Setting</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-suitcase"></i>
+                                Time
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Overview</a></li>
+                                <li><a class="dropdown-item" href="#">Calendar</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#"><i class="fa-sharp fa-solid fa-signal"></i>Reports</a>
+                        </li>
                     </ul>
-                </div>
-            </div>
-        </nav>
-    
-        <!----selection start----->
+                </ul>
+            </ul>
+        </div>
+    </div>
+       
+       <!----selection start----->
     <section>
         <div class="container d-flex flex-column align-items-center d-flex justify-content-evenly">
             <h3>Welcome to effortless HR</h3>
@@ -111,7 +110,8 @@
             </div>
         </div>
     </section>
-  <script src="./index.js"></script>   
+     
+  <script src="./script.js"></script>   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
   crossorigin="anonymous"></script>
