@@ -1,36 +1,41 @@
+//Login Function default username and password: admin/admin//
+function validateCredentials(event) {
+  event.preventDefault(); 
 
-const login = () => {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-  
-    fetch(' https://my.api.mockaroo.com/mk_users.json?key=0339a140', {
-      method: 'POST',
-      body: JSON.stringify({ username: username, password: password }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert('Login successful!');
-        } else {
-          alert('Login failed. Please check your credentials.');
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-  };
-  
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
+  const username = usernameInput.value;
+  const password = passwordInput.value;
 
+  if (username !== 'admin' || password !== 'admin') {
+    alert('Incorrect username or password');
+  } else {
+    alert('Login successful'); 
+  }
+}
 
+const form = document.querySelector('form');
+form.addEventListener('submit', validateCredentials);
 
+function handleNext() {
+  const activeTab = document.querySelector('.nav-link.active');
 
+  const nextTabHref = activeTab.getAttribute('href');
 
+  activeTab.classList.remove('active');
 
+  const activeTabPane = document.querySelector('.tab-pane.active');
+  activeTabPane.classList.remove('show', 'active');
 
+  const nextTab = document.querySelector(`a[href="${nextTabHref}"]`);
+  nextTab.classList.add('active');
 
+  const nextTabPane = document.querySelector(nextTabHref);
+  nextTabPane.classList.add('show', 'active');
+  }
 
+  const nextButton = document.querySelector('.btn-success');
+  nextButton.addEventListener('click', handleNext);
 
 function fetchUserData() {
     fetch('https://my.api.mockaroo.com/mk_users.json?key=0339a140')
@@ -45,3 +50,28 @@ function fetchUserData() {
             `;})
         }
         window.addEventListener('DOMContentLoaded', fetchUserData);
+
+//User Photo//
+fetch('https://reqres.in/api/users?page=2')
+.then(response => response.json())
+.then(data => {
+  const imagesContainer = document.getElementById('images-container');
+  data.data.forEach(user => {
+    const imgElement = document.createElement('img');
+    imgElement.src = user.avatar;
+    imgElement.alt = `Image of ${user.first_name} ${user.last_name}`;
+    imagesContainer.appendChild(imgElement);
+  });
+})
+.catch(error => {
+  console.error('Error fetching images:', error);
+});
+
+//Close Page//
+
+const closePage = () => {
+  window.location.href = 'login.html'; 
+};
+
+const closeButton = document.querySelector('.close');
+closeButton.addEventListener('click', closePage);

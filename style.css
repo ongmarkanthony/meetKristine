@@ -1,6 +1,91 @@
-.container {
-    border: 2px solid #000;
-    background-color:5840BA;
-    border-radius: 10px;
-    padding: 10px;
-}
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+    .progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+    .progress {
+      display: inline-block;
+      vertical-align: middle;
+      height: 50%;
+      width: 25%;
+    }
+  
+    /*Style for Welcome Section*/
+    .welcome-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 50px;
+      margin-right: 50px;
+      padding: 50px;
+    }
+    .welcome-container p {
+      font-size: 20px;
+      font-weight: 100;
+      font-style: normal;
+    }
+    .welcome-container h1 {
+      font-size: 40px;
+      font-weight: 100;
+      font-style: normal;
+      align-items: center;
+    }
+
+    .welcome-container p {
+      font-size: 20px;
+      font-weight: 100;
+      font-style: normal;
+      align-items: center;
+    }
+
+    .container {
+        padding: 50px;
+        margin: 0 auto;
+        width: 100%;
+        height: 70%;
+    }
+
+    .bg-light-lg {
+        background-color: lightgray;
+    }
+
+    .border {
+        border: 1px solid black;
+        height: 100%;
+    }
+
+    .border-radius {
+        border-radius: 5px;
+    }
+
+    .align-items-center {
+        display: flex;
+        align-items: center;
+    }
+
+    .image-container {
+        padding: 50px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        width: auto;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    section {
+        padding: 50px;
+        margin: 0 auto;
+        width: 100%;
+        height: 70%;
+    }
