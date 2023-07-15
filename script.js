@@ -51,22 +51,6 @@ function fetchUserData() {
         }
         window.addEventListener('DOMContentLoaded', fetchUserData);
 
-//User Photo//
-fetch('https://reqres.in/api/users?page=2')
-.then(response => response.json())
-.then(data => {
-  const imagesContainer = document.getElementById('images-container');
-  data.data.forEach(user => {
-    const imgElement = document.createElement('img');
-    imgElement.src = user.avatar;
-    imgElement.alt = `Image of ${user.first_name} ${user.last_name}`;
-    imagesContainer.appendChild(imgElement);
-  });
-})
-.catch(error => {
-  console.error('Error fetching images:', error);
-});
-
 //Close Page//
 
 const closePage = () => {
@@ -75,3 +59,32 @@ const closePage = () => {
 
 const closeButton = document.querySelector('.close');
 closeButton.addEventListener('click', closePage);
+
+// script.js
+
+// Function to fetch images from the API//
+async function fetchImages() {
+  try {
+    const response = await fetch('https://dummyapi.io/data/v1/user?limit=10');
+    const images = await response.json();
+
+    const imagesContainer = document.getElementById('images-container');
+
+    // Clear existing content
+    imagesContainer.innerHTML = '';
+
+    // Create image elements and append them to the container
+    images.forEach((image) => {
+      const imgElement = document.createElement('img');
+      imgElement.src = image.url;
+      imgElement.alt = image.description;
+      imgElement.classList.add('image');
+      imagesContainer.appendChild(imgElement);
+    });
+  } catch (error) {
+    console.error('Error fetching images:', error);
+  }
+}
+
+// Call the fetchImages function to load the images on page load
+fetchImages();
