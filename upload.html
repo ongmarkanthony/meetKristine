@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Onboarding</title>
+    <title>Onboarding - Documents Upload</title>
 </head>
 <body>
 <div class="container-fluid">
@@ -13,34 +13,107 @@
         <nav class="navbar navbar-expand-lg" style=" padding: 0; margin: 0 auto; width: 100%; height: 100;background-color: #5840BA; color: #FFFFFF;">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="./meetkristinelogo.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-middle">
+                    <img src="./meetkristinelogo.png" alt="Logo" width="100" height="100" class="d-inline-block align-text-middle" style="border-radius: 50%;">
                     Set Up Your Account
                 </a>
                 <ul class="navbar-nav d-flex : justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Welcome</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link disabled" href="./onboarding.html">Welcome</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Create Profile</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link active" aria-current="page" href="./createprofile.html">Create Profile</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Details</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link disabled" href="./details.html">Details</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Payroll</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link disabled" href="./payrollinfo.html">Payroll</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Documents</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link disabled" href="./documents.html">Documents</a></button>
                     </li>
-                </ul>
-                <button type ="get-started-button" class="btn btn-dark"><a href="./index.html">Get Started</button>
-                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                            <a class="nav-link active" href="./login.html">Login</a></button>
+                    </li>
+                </ul>                  
+                    <span class="material-symbols-outlined">Close</span>
+                    <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
         </nav>
         </div>
     </div>
 </div> 
-<div class="container align-items-center">
-    <div class="row justify-content-around container-fluid" style="width:100%; height:100%; background-color: #5840BA; color: #FFFFFF;">
+<div class="container align-items-center" style="width: 100%; height: 79vh;">
+    <h1 class="text-center mt-5">Upload Documents</h1>
+    <div class="col-md-6 mx-auto mt-5" >
+        <form action="./action_page.php">
+            <div class="form-group">
+                <label for="dropdownSelect">Type of ID:</label>
+                <select class="form-control mt-3" id="dropdownSelect" name="dropdownSelect">
+                    <option value="">-- Select --</option>
+                    <option value="Passport">Passport</option>
+                    <option value="Philhealth">Philhealth ID</option>
+                    <option value="National ID">National ID</option>
+                    <option value="UMID">UMID</option>
+                    <option value="TIN ID">TIN ID</option>
+                    <option value="Others">Others</option>
+                </select>
+                <input type="text" class="form-control mt-3" id="idNumber" placeholder="Input ID Number" required>
+                <input  class="mt-3" type="file" id="myFile" name="filename">
+            </div>
+                <div class="form-group">
+                    <input type="text" class="form-control mt-3" id="document1" placeholder="Name of Document" required>
+                    <input  class="mt-3" type="file" id="myFile" name="filename">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control mt-3" id="document2" placeholder="Name of Document" required>
+                    <input  class="mt-3" type="file" id="myFile" name="filename">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control mt-3" id="document3" placeholder="Name of Document" required>
+                    <input  class="mt-3" type="file" id="myFile" name="filename">
+                </div>
+        </form>
+        <div class="container">
+            <button type="submit" class="btn btn-info btn-lg" id="submitButton">Submit</button>
+            <div class="uploadModal" id="submitModal" role="dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Congratulations</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Congratulations and a warm welcome to the MeetKristine team! We are thrilled to have you on board and excited about the value you bring to our organization.
+                        The onboarding process is now complete, and we hope it has provided you with valuable insights into our company's culture, values, and processes. As you embark on this new journey with us, we want to assure you that you are not alone. Our supportive and collaborative team is here to guide and empower you every step of the way.
+                        If you have any questions or need assistance, don't hesitate to reach out to your manager or HR representative. We encourage open communication and value your input as we continuously strive for growth and excellence.
+                        Once again, welcome to the MeetKristine family! We look forward to achieving great milestones together and creating a positive impact in our industry..</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+            </div> 
+          </div>
+        </div>          
+    </div>
+</div>
+    <footer class=" container-fluid" style="background-color: #5840BA;">
+        <p style="text-align: center;" >&copy; Kristine 2023</p>
+    </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./script.js"></script>
+</body>
+</html>
