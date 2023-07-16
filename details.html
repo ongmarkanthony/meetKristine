@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Onboarding - Details</title>
 </head>
 <body>
@@ -18,183 +20,195 @@
                 </a>
                 <ul class="navbar-nav d-flex : justify-content-between">
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Welcome</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link disabled" href="./onboarding.html">Welcome</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Create Profile</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link active" aria-current="page" href="./createprofile.html">Create Profile</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Details</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link disabled" href="./details.html">Details</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href=".#">Payroll</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link disabled" href="./payrollinfo.html">Payroll</a></button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Documents</a>
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                        <a class="nav-link disabled" href="./documents.html">Documents</a></button>
                     </li>
-                </ul>
-                <button type ="get-started-button" class="btn btn-dark"><a href="./payrollinfo.html">Get Started</button>
-                <button type="button" class="close" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-default btn-lg" id="myBtn">
+                            <a class="nav-link active" href="./login.html">Login</a></button>
+                    </li>
+                </ul>                  
+                <span class="material-symbols-outlined">Close</span>
+                  <button type="button" class="close" aria-label="Close">
                 </button>
             </div>
         </nav>
         </div>
     </div>
-</div> 
-<div class="flex-container">
-    <div class="col d-flex justify-content-center" style="width:50%; background-color: #5840BA;">
-        <p>Your details</p>
-    </div>
-      <div class="container mt-5">
-    <!-- Collapse button -->
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseForm"
-      aria-expanded="false" aria-controls="collapseForm">
-      Your Profile
+</div>
+<div class="text-center mt-5">
+    <h2>Let me know more about you!</h2>
+    <p>Share some relevant information. Click the button below and fill out the form</p>
+</div>
+<div class="container mt-5 text-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#profileForm"
+      aria-expanded="false" aria-controls="profileForm" style="margin-left: 5px; width:50vw; height:12vh;">
+      <i class ="fa solid fa-user fa-2x" style="margin-right: 5px;"></i><span><h3>Your Profile</h3></span>
     </button>
-
     <!-- Collapsible form -->
-    <div class="collapse mt-3" id="collapseForm">
-      <form>
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" required>
+</div>
+    <div class="collapse mt-3" id="profileForm">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mx-auto">
+                <form>
+                    <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" required>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" class="form-control" id="dob" placeholder="Enter Date of Birth" required>
+                    </div>
+
+                    <div class="form-group">
+                    <label for="nationality">Nationality</label>
+                    <input type="text" class="form-control" id="nationality" placeholder="Enter Nationality" required>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="dob">Date of Birth</label>
-          <input type="date" class="form-control" id="dob" required>
-        </div>
-
-        <div class="form-group">
-          <label for="nationality">Nationality</label>
-          <input type="text" class="form-control" id="nationality" placeholder="Enter Nationality" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-  </div>
-  <div class="container mt-5">
-    <!-- Collapse button -->
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseForm"
-      aria-expanded="false" aria-controls="collapseForm">
-      Current Home Address
-    </button>
-
-    <!-- Collapsible form -->
-    <div class="collapse mt-3" id="collapseForm">
-      <form>
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="dob">Date of Birth</label>
-          <input type="date" class="form-control" id="dob" required>
-        </div>
-
-        <div class="form-group">
-          <label for="nationality">Nationality</label>
-          <input type="text" class="form-control" id="nationality" placeholder="Enter Nationality" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-  </div>
-  <div class="container mt-5">
-    <!-- Collapse button -->
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseForm"
-      aria-expanded="false" aria-controls="collapseForm">
-      Contact Information
-    </button>
-
-    <!-- Collapsible form -->
-    <div class="collapse mt-3" id="collapseForm">
-      <form>
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
-        </div>
-
-        <div class="form-group">
-            <label for="gender">Gender</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
-          </div>
-  
-
-        <div class="form-group">
-          <label for="dob">Date of Birth</label>
-          <input type="date" class="form-control" id="dob" required>
-        </div>
-
-        <div class="form-group">
-          <label for="nationality">Nationality</label>
-          <input type="text" class="form-control" id="nationality" placeholder="Enter Nationality" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-  </div>
-  <div class="container mt-5">
-    <!-- Collapse button -->
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseForm"
-      aria-expanded="false" aria-controls="collapseForm">
-      In Case of Emergency
-    </button>
-
-    <!-- Collapsible form -->
-    <div class="collapse mt-3" id="collapseForm">
-      <form>
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="dob">Date of Birth</label>
-          <input type="date" class="form-control" id="dob" required>
-        </div>
-
-        <div class="form-group">
-          <label for="nationality">Nationality</label>
-          <input type="text" class="form-control" id="nationality" placeholder="Enter Nationality" required>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
-  </div>
-
-
-    <div class="col" style="width:50%; background-color:white;">
-        <p> Column 2 </p>
     </div>
 </div>
+<div class="container mt-5 text-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#addressForm"
+      aria-expanded="false" aria-controls="addressForm" style="margin-left: 5px; width:50vw; height:12vh;">
+      <i class="fas fa-home fa-2x" style="margin-right: 5px;"></i>
+    <span><h3>Current Home Address</h3></span>
+    </button>
 
+    <div class="collapse mt-3" id="addressForm">
+      <div class="row justify-content-center">
+        <div class="col-md-6 mx-auto">
+            <form>
+                <div class="form-group">
+                <label for="addressLine1">Address Line 1</label>
+                <input type="text" class="form-control" id="addressLine1" placeholder="Address Line 1" required>
+                </div>
+
+                <div class="form-group">
+                <label for="addressLine2">Address Line 2</label>
+                <input type="text" class="form-control" id="addressLine2" placeholder=" Address Line 2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="City">City </label>
+                    <input type="text" class="form-control" id="City" placeholder="Enter City" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Country">Country</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="Enter Country" required>
+                </div>
+
+                <div class="form-group">
+                <label for="postalCode">Postal Code</label>
+                <input type="number" class="form-control" id="nationality" placeholder="Enter Postal Code" required>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  <div class="container mt-5 text-center">
+
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#contactForm"
+      aria-expanded="false" aria-controls="contactForm" style="margin-left: 5px; width:50vw; height:12vh;">
+      <i class="fas fa-phone fa-2x" style="margin-right: 5px;"></i>
+      <span><h3>Contact Information</h3></span>
+    </button>
+
+<div class="collapse mt-3" id="contactForm">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mx-auto">
+            <form>
+                <div class="form-group">
+                <label for="prefferedName">Preffered Name</label>
+                <input type="text" class="form-control" id="prefferedName" placeholder="Enter Preffered Name" required>
+                </div>
+
+                <div class="form-group">
+                <label for="contactNumber1">Primary Contact Number</label>
+                <input type="number" class="form-control" id="contactNumber1" placeholder="Enter Primary Contact Number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactNumber2">Secondary Contact Number</label>
+                    <input type="number" class="form-control" id="contactNumber2" placeholder="Enter Secondary Contact Number" required>
+                </div>
+    
+                <div class="form-group">
+                <label for="personalEmail">Personal Email Address</label>
+                <input type="email" class="form-control" id="personalEmail" placeholder="Enter Preferred Email" required>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+  <div class="container mt-5 text-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#emergencyForm"
+    aria-expanded="false" aria-controls="emergencyForm" style="margin-left: 5px; width:50vw; height:12vh;">
+    <i class="fas fa-exclamation-triangle fa-2x" style="margin-right: 5px; width: 100%"></i> <!-- Font Awesome icon -->
+    <span><h3>In Case of Emergency</h3></span>
+  </button>
+<div class="collapse mt-3" id="emergencyForm">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mx-auto">
+            <form>
+                <div class="form-group">
+                <label for="emergencyContactName">Fullname</label>
+                <input type="text" class="form-control" id="emergencyContactName" placeholder="Enter Full Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emergencyContactNumber">Contact Number</label>
+                    <input type="number" class="form-control" id="emergencyContactNumber" placeholder="Enter Contact Number" required>
+                </div>
+
+                <div class="form-group">
+                <label for="emergencyContactAddress">Address</label>
+                <input type="text" class="form-control" id="emergencyContactAddress" placeholder="Enter Nationality" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emergencyContactRelationship">Relationship</label>
+                    <input type="text" class="form-control" id="emergencyContactRelationship" placeholder="Enter Nationality" required>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary">Next</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <footer class=" container-fluid" style="background-color: #5840BA;">
+        <p style="text-align: center;" >&copy; Kristine 2023</p>
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
