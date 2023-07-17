@@ -36,8 +36,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .catch((error) => console.error("Error fetching data:", error));
   });
 
-//Department Chart Count//
-
 //Department Data-CHART//
 document.addEventListener("DOMContentLoaded", function () {
     const apiUrl = "https://my.api.mockaroo.com/employee_list.json?key=0339a140";
