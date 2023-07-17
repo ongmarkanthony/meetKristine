@@ -91,4 +91,34 @@ function closeNav() {
 
 //Populate DATA on the Table//
 
+async function fetchDataAndPopulateTable() {
+    try {
+      const response = await fetch('https://my.api.mockaroo.com/employee_list.json?key=0339a140');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      const tableBody = document.querySelector('.table tbody');
+
+      data.forEach((employee) => {
+        if (Object.values(employee).every((value) => value !== null)) {
+        const { id, first_name, last_name, job_title, department, gender } = employee;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${id}</td>
+          <td>${first_name}</td>
+          <td>${last_name}</td>
+          <td>${job_title}</td>
+          <td>${department}</td>
+          <td>${gender}</td>
+        `;
+        tableBody.appendChild(row);
+        }
+      });
+    } catch (error) {
+      console.error('Error Fetching Data', error);
+    }
+  }
+  fetchDataAndPopulateTable();
 
