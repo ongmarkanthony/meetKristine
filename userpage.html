@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+    body {
+        background-color: #5840BA;
+      }
+  
+      .container {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .clock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 30px;
+      }
+  
+      #clockDisplay {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+  
+      #clockButton {
+        font-size: 1.5rem;
+      }
+    </style>
+</head>
+<body>
+    <header>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="./onboarding.html">
+                    <img src="./meetkristinelogo.png" alt="Avatar Logo" style="width:40px;" class="rounded-pill"> 
+                     Welcome Kristine!
+                  </a>
+                  <a class="navbar-brand" href="./login.html"><span class="material-symbols-outlined">logout</span>
+                </div>
+              </nav>
+    </header>
+    <div class="d-flex justify-content-around mt-5" style="width: 100%; height: 60%; padding: 20px;">
+        <div class="card">
+            <img src="./kristine.png" alt="Profile Photo" id="profile-photo" class="card-img-top img-fluid" style="width: 200px; height: 150px; border-radius: 50%;">
+                <h3 class="text-center">Kristine</h3>
+                <p  class="text-center" id="job-title">Software Engineer</p>
+        </div>
+            <div class="card-clock">
+                    <div class="clock">
+                        <h2>Time In / Time Out</h2>
+                        <div id="clockDisplay" class="text-center"></div>
+                        <button id="clockButton" class="btn btn-primary btn-block mt-3">Clock In</button>
+                        <ul id="clockLogs" class="list-group"></ul>
+                    </div>
+            </div>
+            <div class="card "> 
+                <div class="leave-credits mt-5" style="width: 100%; font-size: large;">
+                    <h5 class="text-center">Available Leave Credits</h5>
+                    <div id="leaveCreditsDisplay" class="leave-credits__details text-center">
+                      <!-- Leave credits will be displayed here dynamically -->
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="width: 80%; padding:10px; background-color: aliceblue; opacity: 0.8;">
+        <div class="row justify-content-between" style="padding:20px">
+            <div class="col-6">
+                <div class="leave-requests mt-4" style="width: 100%;">
+                    <h2>Leave Requests</h2>
+                    <ul id="leaveRequestsList" class="list-group">
+                      <!-- Leave requests will be displayed here dynamically -->
+                    </ul>
+                </div>  
+            </div>
+            <div class="col-6">
+                <form id="timeOffForm">
+                    <h2>Time Off Request</h2>
+                    <div class="form-group mt-4" style="width: 100%;">
+                        <label for="leaveType">Leave Type:</label>
+                        <select class="form-control" id="leaveType" required>
+                            <option value="" selected disabled>Select Leave Type</option>
+                            <option value="Vacation Leave">Vacation Leave</option>
+                            <option value="Sick Leave">Sick Leave</option>
+                            <option value="Personal Leave">Personal Leave</option>
+                        </select>
+                        <label for="numberOfDays">Number of Days:</label>
+                        <input type="number" class="form-control" id="numberOfDays" min="1" required>
+
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" id="date" required>
+
+                        <label for="withPay">With Pay:</label>
+                            <select class="form-control" id="withPay" required>
+                                <option value="" selected disabled>Select Option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        <button type="submit" class="btn btn-primary btn-block mt-5">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const timeOffForm = document.getElementById('timeOffForm');
+      const leaveTypeInput = document.getElementById('leaveType');
+      const numberOfDaysInput = document.getElementById('numberOfDays');
+      const withPayInput = document.getElementById('withPay');
+      const clockDisplay = document.getElementById('clockDisplay');
+      const clockButton = document.getElementById('clockButton');
+
+      const availableLeaveCredits = {
+        'Vacation Leave': 10,
+        'Sick Leave': 5,
+        'Personal Leave': 3,
+      };
+
+      const leaveRequests = [
+        {
+          id: 1,
+          leaveType: 'Vacation Leave',
+          numberOfDays: 2,
+          withPay: 'Yes',
+          status: 'Approved',
+        },
+        {
+          id: 2,
+          leaveType: 'Sick Leave',
+          numberOfDays: 1,
+          withPay: 'Yes',
+          status: 'Pending',
+        },
+        {
+          id: 3,
+          leaveType: 'Personal Leave',
+          numberOfDays: 3,
+          withPay: 'No',
+          status: 'Disapproved',
+        },
+      ];
+
+      let isClockedIn = false;
+      const timestamps = [];
+
+      function updateLeaveCreditsDisplay() {
+        const leaveCreditsDisplay = document.getElementById('leaveCreditsDisplay');
+        leaveCreditsDisplay.innerHTML = '';
+
+        Object.keys(availableLeaveCredits).forEach(leaveType => {
+          const leaveCreditsItem = document.createElement('div');
+          leaveCreditsItem.textContent = `${leaveType}: ${availableLeaveCredits[leaveType]} days`;
+          leaveCreditsDisplay.appendChild(leaveCreditsItem);
+        });
+      }
+
+      function updateLeaveRequestsList() {
+        const leaveRequestsList = document.getElementById('leaveRequestsList');
+        leaveRequestsList.innerHTML = '';
+
+        leaveRequests.forEach(request => {
+          const leaveRequestItem = document.createElement('li');
+          leaveRequestItem.classList.add('list-group-item', 'leave-requests__item');
+          leaveRequestItem.innerHTML = `
+            <strong>Leave Type:</strong> ${request.leaveType}<br>
+            <strong>Number of Days:</strong> ${request.numberOfDays}<br>
+            <strong>With Pay:</strong> ${request.withPay}<br>
+            <strong>Status:</strong> ${request.status}
+          `;
+          leaveRequestsList.appendChild(leaveRequestItem);
+        });
+      }
+
+      function updateClock() {
+        const currentTime = new Date();
+        const timeString = currentTime.toLocaleTimeString();
+        clockDisplay.innerText = timeString;
+      }
+
+      function toggleClock() {
+        const currentTime = new Date();
+        const timeString = currentTime.toLocaleTimeString();
+
+        if (isClockedIn) {
+          clockButton.innerText = 'Clock In';
+          clockButton.classList.remove('btn-danger');
+          clockButton.classList.add('btn-primary');
+          timestamps.push({ type: 'Clock Out', time: timeString });
+        } else {
+          clockButton.innerText = 'Clock Out';
+          clockButton.classList.remove('btn-primary');
+          clockButton.classList.add('btn-danger');
+          timestamps.push({ type: 'Clock In', time: timeString });
+        }
+
+        updateClockLogs();
+
+        isClockedIn = !isClockedIn;
+      }
+
+      function updateClockLogs() {
+        const clockLogs = document.getElementById('clockLogs');
+        clockLogs.innerHTML = '';
+
+        timestamps.forEach(log => {
+          const logItem = document.createElement('li');
+          logItem.innerText = `${log.type}: ${log.time}`;
+          clockLogs.appendChild(logItem);
+        });
+      }
+
+      function handleFormSubmit(event) {
+        event.preventDefault();
+
+        const leaveType = leaveTypeInput.value;
+        const numberOfDays = Number(numberOfDaysInput.value);
+        const withPay = withPayInput.value;
+
+        if (!leaveType || !numberOfDays || !withPay) {
+          alert('Please fill in all fields.');
+          return;
+        }
+
+        if (numberOfDays > availableLeaveCredits[leaveType]) {
+          alert('Insufficient leave credits. Please choose a lower number of days.');
+          return;
+        }
+
+        const message = `Leave Type: ${leaveType}\nNumber of Days: ${numberOfDays}\nWith Pay: ${withPay}`;
+        alert(`Your time-off request has been submitted:\n\n${message}`);
+
+        timeOffForm.reset();
+      }
+
+      timeOffForm.addEventListener('submit', handleFormSubmit);
+      clockButton.addEventListener('click', toggleClock);
+      setInterval(updateClock, 1000);
+
+      updateLeaveCreditsDisplay();
+      updateLeaveRequestsList();
+    });
+
+    //accordion button//
+
+    const accordionButton = document.querySelector(".accordion-button");
+    const content = accordionButton.nextElementSibling;
+
+    accordionButton.addEventListener("click", () => {
+        accordionButton.classList.toggle("active");
+        content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+</script>
+
+
+  <!-- Bootstrap JS (for any JavaScript functionality) -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
