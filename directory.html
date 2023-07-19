@@ -55,10 +55,15 @@
     </div>
   </div>
 </main>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   <script>
     async function fetchEmployees() {
       try {
-        const response = await fetch('https://randomuser.me/api/?results=100');
+        const response = await fetch('https://randomuser.me/api/?results=20');
         const data = await response.json();
         return data.results;
       } catch (error) {
@@ -133,9 +138,6 @@
       renderEmployeeCards(employees);
     })();
   </script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="./dbReport.js"></script>
 </body>
 </html>
