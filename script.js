@@ -1,21 +1,4 @@
 //Login Function default username and password: admin/admin//
-function validateCredentials(event) {
-  event.preventDefault(); 
-
-  const usernameInput = document.getElementById('username');
-  const passwordInput = document.getElementById('password');
-  const username = usernameInput.value;
-  const password = passwordInput.value;
-
-  if (username !== 'admin' || password !== 'admin') {
-    alert('Incorrect username or password');
-  } else {
-    alert('Login successful'); 
-  }
-}
-
-const form = document.querySelector('form');
-form.addEventListener('submit', validateCredentials);
 
 
 
@@ -49,3 +32,17 @@ window.addEventListener("click", function(event) {
   }
 });
 
+//function to login admin and users//
+
+function login() {
+  const usernameInput = document.getElementById('username').value;
+  const passwordInput = document.getElementById('password').value;
+
+  if (usernameInput === 'admin' && passwordInput === 'admin') {
+    window.location.href = 'index.html';
+  } else if (usernameInput === 'user' && passwordInput === 'user') {
+    window.location.href = 'userpage.html';
+  } else {
+    alert('Incorrect username or password');
+  }
+}
