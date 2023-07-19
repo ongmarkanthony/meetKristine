@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employee Directory</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./report_style.css">
 </head>
 
 <style>
@@ -19,14 +19,24 @@
 </style>
 
 <body>
-  <div class="container mt-4">
+  <aside>
+    <div id="main">
+      <button class="openbtn" onclick="openNav()">&#9776;Directory</button>
+  </div>     
+    <div id="mySidebar" class="sidebar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">Employee List</a>      
+      <a href="#">Contact</a>
+  </div>
+  </aside>
+<main class="container-fluid">
+  <div class="container mt-mb-4" style="height: 79vh;">
     <h1 class="mb-4">Employee Directory</h1>
     <div class="form-group">
-      <input type="text" class="form-control" id="searchInput" placeholder="Search by first name or last name">
+      <input type="text" class="form-control" id="searchInput">
     </div>
     <div class="row" id="employeeList"></div>
   </div>
-
   <!-- Modal -->
   <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeModalLabel"
     aria-hidden="true">
@@ -44,10 +54,7 @@
       </div>
     </div>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</main>
   <script>
     async function fetchEmployees() {
       try {
@@ -126,5 +133,9 @@
       renderEmployeeCards(employees);
     })();
   </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="./dbReport.js"></script>
 </body>
 </html>
