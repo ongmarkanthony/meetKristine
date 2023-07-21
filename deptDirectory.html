@@ -28,7 +28,7 @@
       <a href="./userpage.html">Home</a>
       <a href="./directory.html">Employee List</a>      
       <a href="./deptDirectory.html">Department</a>
-      <a href ="./login.html">Exit</a>
+      <a href ="./index.html">Exit</a>
   </div>
   </aside>
 <main class="container-fluid">
@@ -36,9 +36,23 @@
     <h1 class="mb-4">Department Directory</h1>
     <div class="form-group">
       <input type="text" class="form-control" id="searchInput" style="width: 50%;" placeholder="Search">
-    </div>
-    <div class="row" id="employeeList"></div>
+        <div>
+          <h4 class="mb-4"> Human Resources</h4>
+        </div>
+        <div>
+          <h4 class="mb-4"> Technology</h4>
+        </div>
+        <div>
+          <h4 class="mb-4"> Finance</h4>
+        </div>
+        <div>
+          <h4 class="mb-4"> Admin</h4>
+        </div>
+        <div>
+          <h4 class="mb-4"> Sales</h4>
+        </div>
   </div>
+
   <!-- Modal -->
   <div class="modal fade" id="employeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeModalLabel"
     aria-hidden="true">
@@ -65,7 +79,7 @@
   <script>
     async function fetchEmployees() {
       try {
-        const response = await fetch('https://randomuser.me/api/?results=20');
+        const response = await fetch('https://dummyjson.com/users?limit=20');
         const data = await response.json();
         return data.results;
       } catch (error) {

@@ -65,7 +65,7 @@
   <script>
     async function fetchEmployees() {
       try {
-        const response = await fetch('https://randomuser.me/api/?results=20');
+        const response = await fetch('https://dummyjson.com/users?limit=20');
         const data = await response.json();
         return data.results;
       } catch (error) {
@@ -116,7 +116,7 @@
         <p><strong>Email:</strong> ${employee.email}</p>
         <p><strong>Phone:</strong> ${employee.phone}</p>
         <p><strong>Cell:</strong> ${employee.cell}</p>
-        <img src="${employee.picture.large}" alt="${employee.name.first} ${employee.name.last}" class="img-fluid">
+        <img src="${employee.picture.medium}" alt="${employee.name.first} ${employee.name.last}" class="img-fluid">
       `;
     }
 
