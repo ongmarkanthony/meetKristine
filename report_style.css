@@ -76,3 +76,23 @@
         background-color: #f2f2f2;
         font-weight: bold;
 }
+
+.container-box {
+  background-color: black;
+  height: 40vh;
+  padding: 20px;
+}
+
+.container-box h4 {
+  text-align: center;
+}
+
+.chart-canvas {
+  width: 100%;
+  max-width: 800px;
+}
+
+.container {
+  margin-top: 5rem;
+}
+

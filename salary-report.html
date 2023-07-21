@@ -20,29 +20,48 @@
       
     <div id="main">
         <button class="openbtn" onclick="openNav()">&#9776; Reports</button>
-        <h2>Run reports, get on the top of changes, be proactive with whats happening your company</h2>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col">
-                    <h4 class="text-center">Salary Report</h4>
-                    <canvas id="salaryChart" style="width:100%; max-width:600px"></canvas>
-                </div>
-            </div>
-        </div> 
-    </div>     
+    </div>  
     <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="container-box mt-5 text-center">
+              <h4 class="text-center">Salary Report</h4>
+              <canvas id="salaryChart" class="chart-canvas"></canvas>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="container-box mt-5 text-center">
+              <h4 class="text-center">Per Rank Salary Report</h4>
+              <canvas id="perRankSalaryChart" class="chart-canvas"></canvas>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="container-box mt-5 text-center">
+              <h4 class="text-center">Monthly Expenses for All Salary Report</h4>
+              <canvas id="MonthlySalaryReport" class="chart-canvas"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
         <table class="table" style="width:80%; height:80%;margin-left: auto; margin-right: auto">
             <thead>
               <tr>
-                <th>Employee ID</th>
-                <th>First Name </th>
-                <th>Last Name </th>
-                <th>Job Title</th>
-                <th>Salary</th>
+                <th> Employee ID </th>
+                <th> First Name </th>
+                <th> Last Name </th>
+                <th> Job Title </th>
+                <th> Department </th>
+                <th> Salary </th>
               </tr>
             </thead>
             <tbody></tbody>
       </div>
+
+
+
+      
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
