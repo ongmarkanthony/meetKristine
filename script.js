@@ -39,7 +39,7 @@ function login() {
   const passwordInput = document.getElementById('password').value;
 
   if (usernameInput === 'admin' && passwordInput === 'admin') {
-    window.location.href = 'index.html';
+    window.location.href = 'mainpage.html';
   } else if (usernameInput === 'user' && passwordInput === 'user') {
     window.location.href = 'userpage.html';
   } else {
