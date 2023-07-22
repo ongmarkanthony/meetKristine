@@ -9,180 +9,124 @@
 
 </head>
 <style>
-body {
-  background-color: white;
+#myInput {
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 50%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
 }
 
-.sidebar {
-  margin: 0;
-  padding: 0;
-  width: 200px;
+#myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+}
+
+#myTable th, #myTable td {
+  text-align: left; /* Left-align text */
+  padding: 12px; /* Add padding */
+}
+
+#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
   background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}
-
-.sidebar a {
-  display: block;
-  color: black;
-  padding: 16px;
-  text-decoration: none;
-}
- 
-.sidebar a.active {
-  background-color: #04AA6D;
-  color: white;
-}
-
-.sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
-}
-
-div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
-}
-
-@media screen and (max-width: 700px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
-}
-
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
-}
-
-  .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.search-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.search-form input {
-  margin-right: 10px;
-  padding: 5px;
-}
-
-table {
-  width: 100%;
-}
-
-th, td {
-  text-align: center;
-}
-
-button {
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.modal {
-  display: none; /* Hide the modal by default */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
 }
 </style>
 <body>
-  <div id="main">
-    <button class="openbtn" onclick="openNav()">&#9776;Directory</button>
-</div>     
-  <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="./userpage.html">Home</a>
-    <a href="./directory.html">Employee List</a>      
-    <a href ="./index.html">Exit</a>
-</div>
+  <div class="container">
+  <h2>Directory</h2>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+  <i class="fa-solid fa-magnifying-glass fa-beat fa-xl"></i></input>
+  </div>
 
-  <div class="container text-center">
-    <h1>Employee Directory</h1>
-    <div class="search-form">
-      <input type="text" id="searchInput" placeholder="Search by name...">
-      <button type="button" onclick="search()">Search</button>
-    </div>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p id="modalContent"></p>
-      </div>
-    </div>
-    <table class="table table-striped text-center" style="padding: 20px 0; margin-left: auto; margin-right: 50px; align-items: center; width: auto;">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-          <th>Gender</th>
-          <th>Job Title</th>
-          <th>Department</th>
-          <th>Phone</th>
-          <th>Date Joined</th>
-          <th>Actions</th>
+  <div class="container" id="myTable" style="margin-left: auto; margin-right: auto;">
+    <table id = "employeeData">
+        <tr class="header">
+          <th style="width:10%">Employee ID</th>
+          <th style="width:15%">First Name</th>
+          <th style="width:15%">Last Name</th>
+          <th style="width:15%">Email</th>
+          <th style="width:10%">Gender</th>
+          <th style="width:15%">Job Title</th>
+          <th style="width:15%">Department</th>
+          <th style="width:10%">Phone</th>
         </tr>
-      </thead>
-      <tbody id="employeeData" class="container" style="padding :20px 0 ; margin-right: 10px; margin-right: 50px;">
-        <!-- Employee data will be populated here -->
+      <tbody id="employeeDataBody" class="container" style="padding :20px 0 ; margin-right: 10px; margin-right: 50px;">
       </tbody>
     </table>
   </div>
 
-  <!-- Bootstrap and JavaScript libraries -->
+  <script>
+    function myFunction() {
+      const input = document.getElementById("myInput");
+      const filter = input.value.toUpperCase();
+      const table = document.getElementById("employeeData");
+      const tr = table.getElementsByTagName("tr");
+
+      for (let i = 0; i < tr.length; i++) {
+        const td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          const txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+  document.addEventListener("DOMContentLoaded", fetchData);
+  async function fetchData() {
+  const url = "https://my.api.mockaroo.com/mk_data.json?key=debe7bf0"; // Replace this URL with your API endpoint
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const filteredData = data.filter((employee) => {
+      return !Object.values(employee).some((value) => value === undefined);
+    });
+    populateTable(filteredData);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+} // Add the closing curly brace for fetchData function
+
+function populateTable(data) {
+  const tableBody = document.getElementById("employeeDataBody");
+
+  data.forEach((employee) => {
+    const row = document.createElement("tr");
+    if (Object.values(employee).some((value) => value === undefined)) {
+      return;
+    }
+    row.innerHTML = `
+      <td>${employee.employee_id}</td>
+      <td>${employee.first_name}</td>
+      <td>${employee.last_name}</td>
+      <td>${employee.email}</td>
+      <td>${employee.gender}</td>
+      <td>${employee.job_title}</td>
+      <td>${employee.department}</td>
+      <td>${employee.phone}</td>
+    `;
+    tableBody.appendChild(row);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", fetchData); // Add the DOMContentLoaded event listener to fetch data
+  </script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <!-- Custom JavaScript -->
-  <script src="./directory.js"></script>
-  <script src="./dbReport.js"></script>
-
 </body>
 </html>
